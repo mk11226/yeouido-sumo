@@ -10,3 +10,5 @@
 .resource-action,.scenario-tabs button,.source-list>div,.pending-label{font-size:14px}
 .obs-grid p{font-size:16px}.obs-grid h4,.research-note p{font-size:14px}
 @media(max-width:760px){.resource-card{padding-inline:15px}.resource-card>p{font-size:16px}.section-head>p{font-size:16px}.scenario-detail>p{font-size:16px}.learning-flow p{font-size:16px}}
+
+.route-count{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:-10px 0 25px;font-size:14px}.route-count strong{font-weight:700;color:var(--blue)}.route-count span{font-size:12px;color:var(--muted)}
