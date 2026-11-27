@@ -54,6 +54,8 @@
 .x-road{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start;margin-bottom:64px}
 .x-road-figure{margin:0;padding:14px}
 .x-road-figure img{display:block;width:100%;border-radius:10px}
+.x-road-detail{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.x-road-detail .x-pending{min-height:200px}
 .x-road-figure figcaption{margin:12px 4px 2px;font-size:13px;color:var(--muted)}
 .x-build{list-style:none;counter-reset:b;margin:0 0 26px;padding:0}
 .x-build li{counter-increment:b;position:relative;padding:0 0 18px 40px;display:flex;flex-direction:column}
@@ -142,6 +144,12 @@
 <figure class="x-card x-road-figure">
 <img src="assets/road-network.png" alt="여의도·영등포 SUMO 도로망 전체">
 <figcaption>여의도·당산·영등포 SUMO 도로망 전체</figcaption>
+<!-- 확대 사진: assets/road-detail.png 로 올리면 아래에 보입니다 -->
+<div class="x-road-detail">
+<img src="assets/road-detail.png" alt="SUMO 도로망 확대" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+<div class="x-pending" hidden><span class="pending-label">업로드 예정</span>도로망 확대 사진</div>
+<figcaption>확대: 교차로와 차로 구성</figcaption>
+</div>
 </figure>
 <div class="x-road-copy">
 <ol class="x-build">
