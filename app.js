@@ -1,8 +1,8 @@
 'use strict';
 const scenarios = {
-  night: {hour:'03:00',title:'심야 교통',description:'차량이 적은 시간대입니다. 비교적 여유 있는 도로에서도 신호와 주변 차량을 살피는 주행이 필요합니다.',cars:3},
-  day: {hour:'12:00',title:'주간 교통',description:'일상적인 도심 교통 속에서 신호와 주변 차량에 대응하며 목적지로 향합니다.',cars:6},
-  rush: {hour:'08:00',title:'출근 교통',description:'차량이 몰리는 시간대입니다. 정체와 신호 대기, 교차로에서의 상호작용으로 주행이 더 복잡해집니다.',cars:9}
+  rush: {hour:'08:00',title:'출근길 교통',description:'차가 가장 많이 몰리는 시간입니다. 정체와 신호 대기 속에서 차로를 바꾸고 속도를 조절해야 합니다.',cars:9},
+  day: {hour:'12:00',title:'낮 교통',description:'일상적인 도심 교통입니다. 신호와 주변 차량에 맞춰 목적지로 향합니다.',cars:6},
+  night: {hour:'03:00',title:'새벽 교통',description:'차가 적은 시간입니다. 도로가 한산해도 신호와 주변 차량은 계속 살펴야 합니다.',cars:3}
 };
 const tabs = [...document.querySelectorAll('[data-scenario]')];
 function setScenario(key){
@@ -31,13 +31,14 @@ tabs.forEach((tab,index)=>{
     if(next!==undefined){event.preventDefault();tabs[next].focus();setScenario(tabs[next].dataset.scenario);}
   });
 });
-setScenario('day');
+setScenario('rush');
 function safeURL(value){try{const url=new URL(value);return url.protocol==='https:'?url.href:null;}catch{return null;}}
 fetch('project.json').then(response=>{if(!response.ok)throw new Error('Project links unavailable');return response.json();}).then(config=>{
   ['github','dataset'].forEach(key=>{const url=safeURL(config[key]);if(url)document.querySelectorAll(`[data-resource="${key}"]`).forEach(link=>link.href=url);});
   [['presentation','presentation-card','발표 PDF 열기'],['video','video-card','주행 영상 보기']].forEach(([key,id,label])=>{
     const url=safeURL(config[key]);if(!url)return;
-    const card=document.getElementById(id);const link=document.createElement('a');
+    const card=document.getElementById(id);if(!card)return;
+    const link=document.createElement('a');
     link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.className='resource-action';link.textContent=label;
     card.classList.remove('pending');card.querySelector('.pending-label').replaceWith(link);
   });
