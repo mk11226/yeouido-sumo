@@ -37,14 +37,7 @@
 .x-video-frame .x-pending{height:100%;min-height:0;background:transparent;border:0;border-radius:0;color:#91a7b9}
 .x-video-frame .pending-label{background:#193249;color:#bad2e5}
 .x-video .map-caption{margin:14px 23px 17px}
-.x-jump{position:sticky;top:0;z-index:20;background:#ffffffeb;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.x-jump .wrap{display:flex;align-items:center;gap:8px;padding-block:12px;overflow-x:auto;scrollbar-width:none}
-.x-jump .wrap::-webkit-scrollbar{display:none}
-.x-jump-label{font-size:11px;font-weight:750;letter-spacing:.13em;color:#8a95a5;margin-right:6px;flex-shrink:0}
-.x-jump a{flex-shrink:0;font-size:14px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 15px;transition:color .18s,border-color .18s,background .18s}
-.x-jump a:hover{color:var(--blue);border-color:#b6caff}
-.x-jump a.is-active{color:var(--blue);background:#eef3ff;border-color:#b6caff}
-@media(max-width:760px){.x-card{padding:20px 16px}.x-video{border-radius:17px}.x-jump a{font-size:13px;padding:5px 13px}}
+@media(max-width:760px){.x-card{padding:20px 16px}.x-video{border-radius:17px}}
 </style>
 <script defer src="app.js"></script>
 </head>
@@ -60,8 +53,6 @@
 </section>
 <div class="facts wrap" aria-label="프로젝트 구성"><div><strong>64<span>차원</span></strong><p>관측</p></div><div><strong>2<span>가지</span></strong><p>행동 · 가감속, 차로 변경</p></div><div><strong>3<span>개 시간대</span></strong><p>심야 · 주간 · 출근</p></div><div><strong>13<span>곳</span></strong><p>랜드마크 7곳 · 게이트 6곳</p></div></div>
 
-<!-- ===== 목차 (스크롤해도 위에 붙어 있음) ===== -->
-<nav class="x-jump" aria-label="목차"><div class="wrap"><span class="x-jump-label">JUMP</span><a href="#resources">자료</a><a href="#environment">도로 환경</a><a href="#learning">학습 방법</a><a href="#results">결과</a><a href="#video">주행 영상</a></div></nav>
 
 <!-- ===== 자료 ===== -->
 <section id="resources" class="section wrap resources"><div class="section-head"><div><p class="eyebrow">OPEN PROJECT</p><h2>코드, 데이터, 발표, 영상.<br>모두 여기 있습니다.</h2></div><p>카드를 누르면 바로 열립니다.<br>로그인 없이 누구나 볼 수 있습니다.</p></div>
@@ -129,11 +120,4 @@
 <section class="closing wrap"><div><p class="eyebrow">EXPLORE THE PROJECT</p><h2>코드와 데이터는<br>모두 공개되어 있습니다.</h2></div><a class="button primary" href="#resources">프로젝트 자료 보기</a></section>
 </main>
 <footer class="footer wrap"><a href="#" class="footer-logo">YEOUIDO DRIVE<span>8조 · 증권맨의 삶</span></a><div><span>SUMO · BC · PPO</span><p>도로·배경 데이터: 국가표준노드링크, 서울 TOPIS·T DATA,<br class="mobile-br"> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>.</p></div><a href="#main" class="back-top">맨 위로</a></footer>
-<script>
-/* 목차: 지금 보고 있는 섹션을 파란색으로 표시 */
-(()=>{const links=[...document.querySelectorAll('.x-jump a')];if(!('IntersectionObserver' in window))return;
-const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('is-active'));const a=map.get(e.target.id);if(a){a.classList.add('is-active');a.scrollIntoView({block:'nearest',inline:'nearest'});}}});},{rootMargin:'-45% 0px -50% 0px'});
-map.forEach((_,id)=>{const el=document.getElementById(id);if(el)io.observe(el);});})();
-</script>
 </body></html>
