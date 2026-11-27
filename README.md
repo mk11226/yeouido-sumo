@@ -3,7 +3,7 @@
 여의도 SUMO 자율주행 프로젝트 페이지입니다.
 
 - 공개 주소: https://mk11226.github.io/yeouido-sumo/
-- 프로젝트 코드: https://github.com/mk11226/yeouido_sumo_ws/tree/final
+- 프로젝트 코드: https://github.com/mk11226/yeouido-ppo-submission
 - 데이터: https://huggingface.co/datasets/mk11226/yeouido_sumo
 
 ## 자료 링크 수정
