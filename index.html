@@ -54,6 +54,7 @@
 .x-road{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start;margin-bottom:64px}
 .x-road-figure{margin:0;padding:14px}
 .x-road-figure img{display:block;width:100%;border-radius:10px}
+.x-road-img,.x-scene-img{position:relative}
 .x-road-figure figcaption{margin:12px 4px 2px;font-size:13px;color:var(--muted)}
 .x-build{list-style:none;counter-reset:b;margin:0 0 26px;padding:0}
 .x-build li{counter-increment:b;position:relative;padding:0 0 18px 40px;display:flex;flex-direction:column}
@@ -83,7 +84,7 @@
 .x-zoom:hover{background:var(--blue)}
 .x-zoom[hidden]{display:none}
 .x-video-frame:has(video){cursor:zoom-in}
-.x-scene-img img,.x-road-figure>img{cursor:zoom-in}
+.x-scene-img img,.x-road-img>img{cursor:zoom-in}
 .x-lb-media.is-img{aspect-ratio:auto;background:transparent;max-height:82vh;display:flex;justify-content:center}
 .x-lb-media.is-img img{display:block;max-width:100%;max-height:82vh;width:auto;height:auto;border-radius:12px;background:#fff}
 .x-lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:4vw;background:#0b1626e6;backdrop-filter:blur(4px)}
@@ -99,7 +100,7 @@
 .x-scene-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
 .x-scene-head span{font-size:22px;font-weight:800;color:var(--blue);letter-spacing:-.03em}
 .x-scene-head h4{margin:0;font-size:18px;font-weight:700;letter-spacing:-.04em}
-.x-scene-img{aspect-ratio:5/3;border-radius:10px;overflow:hidden;background:#f1f4f9;margin-bottom:16px}
+.x-scene-img{position:relative;aspect-ratio:5/3;border-radius:10px;overflow:hidden;background:#f1f4f9;margin-bottom:16px}
 .x-scene-img img{display:block;width:100%;height:100%;object-fit:cover}
 .x-scene-img .x-pending{height:100%;min-height:0;border-radius:10px}
 .x-scene>b{font-size:16px;font-weight:700;letter-spacing:-.03em}
@@ -155,7 +156,7 @@
 <div class="x-sub"><span class="x-sub-num">01</span><h3>도로 구성</h3></div>
 <div class="x-road">
 <figure class="x-card x-road-figure">
-<img src="assets/road-network.png" alt="여의도·영등포 SUMO 도로망 전체">
+<div class="x-road-img"><button type="button" class="x-zoom x-zoom-img" aria-label="크게 보기">⤢ 크게 보기</button><img src="assets/road-network.png" alt="여의도·영등포 SUMO 도로망 전체"></div>
 <figcaption>여의도·당산·영등포 SUMO 도로망 전체</figcaption>
 </figure>
 <div class="x-road-copy">
@@ -172,13 +173,13 @@
 <!-- 확대 사진 3장: assets/ 에 road-signal.png, road-merge.png, road-multilane.png 로 올리세요 -->
 <div class="x-scenes">
 <article class="x-scene"><div class="x-scene-head"><span>01</span><h4>신호 교차로</h4></div>
-<div class="x-scene-img"><img src="assets/road-signal.png" alt="신호 교차로 확대" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="x-pending" hidden><span class="pending-label">업로드 예정</span>road-signal.png</div></div>
+<div class="x-scene-img"><button type="button" class="x-zoom x-zoom-img" aria-label="크게 보기">⤢ 크게 보기</button><img src="assets/road-signal.png" alt="신호 교차로 확대" onerror="this.hidden=true;this.nextElementSibling.hidden=false;if(this.previousElementSibling)this.previousElementSibling.hidden=true"><div class="x-pending" hidden><span class="pending-label">업로드 예정</span>road-signal.png</div></div>
 <b>앞차의 정지·출발에 대응</b><p>차간거리와 신호를 함께 확인</p><span class="x-scene-act">가속 · 감속 · 정지</span></article>
 <article class="x-scene"><div class="x-scene-head"><span>02</span><h4>진입 · 합류</h4></div>
-<div class="x-scene-img"><img src="assets/road-merge.png" alt="진입 · 합류 확대" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="x-pending" hidden><span class="pending-label">업로드 예정</span>road-merge.png</div></div>
+<div class="x-scene-img"><button type="button" class="x-zoom x-zoom-img" aria-label="크게 보기">⤢ 크게 보기</button><img src="assets/road-merge.png" alt="진입 · 합류 확대" onerror="this.hidden=true;this.nextElementSibling.hidden=false;if(this.previousElementSibling)this.previousElementSibling.hidden=true"><div class="x-pending" hidden><span class="pending-label">업로드 예정</span>road-merge.png</div></div>
 <b>본선 차량과 진입 간격 조절</b><p>주변 차량의 움직임을 보고 진입</p><span class="x-scene-act">양보 · 진입 시점 판단</span></article>
 <article class="x-scene"><div class="x-scene-head"><span>03</span><h4>다중 차로</h4></div>
-<div class="x-scene-img"><img src="assets/road-multilane.png" alt="다중 차로 확대" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="x-pending" hidden><span class="pending-label">업로드 예정</span>road-multilane.png</div></div>
+<div class="x-scene-img"><button type="button" class="x-zoom x-zoom-img" aria-label="크게 보기">⤢ 크게 보기</button><img src="assets/road-multilane.png" alt="다중 차로 확대" onerror="this.hidden=true;this.nextElementSibling.hidden=false;if(this.previousElementSibling)this.previousElementSibling.hidden=true"><div class="x-pending" hidden><span class="pending-label">업로드 예정</span>road-multilane.png</div></div>
 <b>옆 차로 차량과 간격 확보</b><p>경로와 주변 차량을 함께 고려</p><span class="x-scene-act">차로 유지 · 좌우 변경</span></article>
 </div>
 
@@ -257,7 +258,7 @@ function open(frame){const v=frame.querySelector('video'),f=frame.querySelector(
  lb.hidden=false;document.body.style.overflow='hidden';lb.querySelector('.x-lb-close').focus();}
 function close(){lb.hidden=true;media.replaceChildren();media.classList.remove('is-img');document.body.style.overflow='';}
 function openImg(img,label){media.replaceChildren();media.classList.add('is-img');const el=document.createElement('img');el.src=img.currentSrc||img.src;el.alt=img.alt;media.append(el);title.textContent=label;lb.hidden=false;document.body.style.overflow='hidden';lb.querySelector('.x-lb-close').focus();}
-document.querySelectorAll('.x-scene-img img,.x-road-figure>img').forEach(img=>img.addEventListener('click',()=>{const t=img.closest('.x-scene')?.querySelector('.x-scene-head')?.textContent.replace(/\s+/g,' ').trim()||img.closest('figure')?.querySelector('figcaption')?.textContent||img.alt;openImg(img,t);}));
+document.querySelectorAll('.x-scene-img img,.x-road-img>img').forEach(img=>{const go=()=>{const t=img.closest('.x-scene')?.querySelector('.x-scene-head')?.textContent.replace(/\s+/g,' ').trim()||img.closest('figure')?.querySelector('figcaption')?.textContent||img.alt;openImg(img,t);};img.addEventListener('click',go);const b=img.parentElement.querySelector('.x-zoom-img');if(b)b.addEventListener('click',e=>{e.stopPropagation();go();});});
 frames.forEach(fr=>{const btn=fr.querySelector('.x-zoom');const has=fr.querySelector('video,iframe');if(btn)btn.hidden=!has;
  btn&&btn.addEventListener('click',e=>{e.stopPropagation();open(fr);});
  fr.addEventListener('click',e=>{if(e.target.tagName==='VIDEO'){e.preventDefault();open(fr);}});});
