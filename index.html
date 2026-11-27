@@ -47,3 +47,85 @@
 <a class="skip" href="#main">본문으로 바로가기</a>
 <header class="header"><a href="#" class="brand" aria-label="YEOUIDO DRIVE 홈"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>YEOUIDO<span class="brand-light">DRIVE</span></a><nav aria-label="주요 메뉴"><a href="#project">프로젝트</a><a href="#environment">도로 환경</a><a href="#learning">학습 방법</a><a href="#results">결과</a><a href="#video">주행 영상</a><a href="#resources" class="nav-pill">자료 모아보기</a></nav></header>
 <main id="main">
+
+<!-- ===== 소개 ===== -->
+<section class="hero wrap" id="project">
+<div class="hero-copy"><p class="eyebrow"><span class="tiny-line"></span> 8조 · 증권맨의 삶</p><h1>여의도를 달리는<br><span>자율주행.</span></h1><p class="hero-desc"><strong>실제 여의도 도로에서, 모델 하나로 468가지 주행.</strong><br>랜드마크 7곳과 게이트 6곳 중 두 곳을 골라 출발지와 목적지로 정하고,<br class="desktop-br"> 시간대는 심야·주간·출근 중에서 고릅니다.<br>경로나 시간대가 바뀌어도 모델은 하나입니다.</p><p class="route-count"><strong>156개 경로 × 3개 시간대 = 468개 조건</strong><span>조건마다 모델을 따로 만들지 않았습니다</span></p><div class="hero-links"><a class="button primary" data-resource="github" href="https://github.com/mk11226/yeouido_sumo_ws/tree/final" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5-7 7 7 7m8-14 7 7-7 7M14 3l-4 18"/></svg>코드 보기</a><a class="button secondary" data-resource="dataset" href="https://huggingface.co/datasets/mk11226/yeouido_sumo" target="_blank" rel="noopener noreferrer">데이터셋 보기</a></div><div class="hero-meta"><span>실제 도로 데이터</span><span>SUMO 시뮬레이션</span><span>BC · DAgger · PPO</span></div></div>
+<div class="hero-visual"><div class="map-top"><span><b class="live-dot"></b>YEOUIDO NETWORK</span><span>SEOUL, KR</span></div><img src="assets/yeouido-network.svg" alt="여의도·영등포 SUMO 도로망과 국회의사당에서 IFC 서울까지의 예시 경로" width="6207" height="4564" fetchpriority="high"><div class="map-compass" aria-hidden="true">N<span>│</span></div><div class="map-info"><span class="map-route-icon" aria-hidden="true">⌁</span><div><strong>실제 도로망으로 만든 환경</strong><span>여의도 · 당산 · 영등포</span></div><span class="map-tag">SUMO</span></div><p class="map-caption">실제 도로망 기반 지도입니다. 연두색 선은 예시 경로이며 모델의 주행 결과가 아닙니다.</p></div>
+</section>
+<div class="facts wrap" aria-label="프로젝트 구성"><div><strong>64<span>차원</span></strong><p>관측</p></div><div><strong>2<span>가지</span></strong><p>행동 · 가감속, 차로 변경</p></div><div><strong>3<span>개 시간대</span></strong><p>심야 · 주간 · 출근</p></div><div><strong>13<span>곳</span></strong><p>랜드마크 7곳 · 게이트 6곳</p></div></div>
+
+<!-- ===== 자료 ===== -->
+<section id="resources" class="section wrap resources"><div class="section-head"><div><p class="eyebrow">OPEN PROJECT</p><h2>코드, 데이터, 발표, 영상.<br>모두 여기 있습니다.</h2></div><p>카드를 누르면 바로 열립니다.<br>로그인 없이 누구나 볼 수 있습니다.</p></div>
+<div class="resource-grid">
+<a class="resource-card" data-resource="github" href="https://github.com/mk11226/yeouido_sumo_ws/tree/final" target="_blank" rel="noopener noreferrer"><span class="resource-icon code-icon" aria-hidden="true">&lt;/&gt;</span><span class="resource-kind">SOURCE CODE</span><h3>GitHub</h3><p>도로 환경 구축부터<br>학습·평가까지 전체 코드</p><span class="resource-action">저장소 열기 <span class="external-icon" aria-hidden="true">⧉</span></span></a>
+<a class="resource-card" data-resource="dataset" href="https://huggingface.co/datasets/mk11226/yeouido_sumo" target="_blank" rel="noopener noreferrer"><span class="resource-icon data-icon" aria-hidden="true">▤</span><span class="resource-kind">DATASET</span><h3>Hugging Face</h3><p>선생님 정책으로 수집한<br>주행 데이터</p><span class="resource-action">데이터셋 열기 <span class="external-icon" aria-hidden="true">⧉</span></span></a>
+<article class="resource-card pending" id="presentation-card"><span class="resource-icon paper-icon" aria-hidden="true">▧</span><span class="resource-kind">PRESENTATION</span><h3>발표 자료</h3><p>최종 발표 PDF</p><span class="pending-label">업로드 예정</span></article>
+<article class="resource-card pending" id="video-card"><span class="resource-icon video-icon" aria-hidden="true">▷</span><span class="resource-kind">DRIVING VIDEO</span><h3>주행 영상</h3><p>학습한 모델의<br>sumo-gui 주행 영상</p><span class="pending-label">업로드 예정</span></article>
+</div></section>
+
+<!-- ===== 도로 환경 ===== -->
+<section id="environment" class="environment"><div class="wrap env-grid"><div class="env-copy"><p class="eyebrow">BUILT ON REAL STREETS</p><h2>가상의 직선 도로 대신,<br>실제 여의도.</h2><p>공공 데이터로 도로망, 교통량, 신호를 만들고<br>건물·공원·한강까지 배경으로 넣었습니다.</p><div class="source-list"><div><span>도로망</span><strong>국가표준노드링크</strong></div><div><span>교통량</span><strong>서울시 TOPIS</strong></div><div><span>일부 교차로 신호</span><strong>서울시 T DATA</strong></div><div><span>건물 · 공원 · 한강</span><strong>OpenStreetMap</strong></div></div></div>
+<div class="scenario-panel"><div class="panel-heading"><span>시간대별 교통</span><span class="panel-note">SCENARIOS</span></div><div class="scenario-tabs" role="tablist" aria-label="교통 시간대"><button role="tab" id="tab-night" aria-controls="scenario-detail" aria-selected="false" tabindex="-1" data-scenario="night">심야</button><button role="tab" id="tab-day" aria-controls="scenario-detail" aria-selected="true" data-scenario="day">주간</button><button role="tab" id="tab-rush" aria-controls="scenario-detail" aria-selected="false" tabindex="-1" data-scenario="rush">출근</button></div><div id="scenario-detail" class="scenario-detail" role="tabpanel" tabindex="0" aria-labelledby="tab-day"><div class="scenario-time"><span id="scenario-hour">12:00</span><span id="scenario-title">주간 교통</span></div><div class="road-demo" aria-hidden="true"><div class="lane lane-one"></div><div class="lane lane-two"></div><div class="lane lane-three"></div><div class="lane lane-four"></div></div><p id="scenario-description">일상적인 도심 교통 속에서 신호와 주변 차량에 대응하며 목적지로 향합니다.</p><div class="scenario-footer"><span>TOPIS 실측 교통량 반영</span><span>설명용 그래픽</span></div></div></div>
+</div></section>
+
+<!-- ===== 학습 방법 ===== -->
+<section id="learning" class="section wrap learning"><div class="section-head"><div><p class="eyebrow">LEARNING TO DRIVE</p><h2>먼저 따라 배우고,<br>강화학습으로 다듬었습니다.</h2></div><p>규칙 기반 운전자(선생님)의 데이터로 기본기를 익힌 뒤,<br>PPO로 보상을 받으며 주행을 개선했습니다.</p></div>
+<div class="learning-flow x-flow4">
+<article><span class="flow-icon" aria-hidden="true">1</span><h3>데이터 수집</h3><p>선생님이 여의도를 주행하며 관측과 행동을 기록합니다. 행동에 작은 잡음을 섞어 다양한 상황을 담았습니다.</p><span class="flow-label">EXPERT DATA · DART</span></article>
+<div class="flow-connector" aria-hidden="true"></div>
+<article><span class="flow-icon" aria-hidden="true">2</span><h3>BC</h3><p>수집한 데이터로 선생님의 행동을 그대로 따라 하도록 학습합니다.</p><span class="flow-label">BEHAVIOR CLONING</span></article>
+<div class="flow-connector" aria-hidden="true"></div>
+<article><span class="flow-icon" aria-hidden="true">3</span><h3>DAgger</h3><p>모델이 직접 주행하다 만난 상황에 선생님의 정답을 붙여 추가로 학습합니다.</p><span class="flow-label">DATASET AGGREGATION</span></article>
+<div class="flow-connector" aria-hidden="true"></div>
+<article><span class="flow-icon" aria-hidden="true">4</span><h3>PPO</h3><p>DAgger 모델에서 시작해 도착·충돌·신호 위반 보상으로 정책을 다듬습니다.</p><span class="flow-label">REINFORCEMENT LEARNING</span></article>
+</div>
+<div class="research-note"><span class="note-symbol" aria-hidden="true">i</span><p><strong>안전 쉴드</strong> · 모델이 낸 속도가 앞차·신호·교차로 기준 안전 속도를 넘으면 그 아래로 자릅니다. 학습과 주행 모두에 적용됩니다.</p></div>
+<details class="observation"><summary><span>모델은 무엇을 보고 판단하나요?</span><span class="obs-summary">64차원 관측 <span class="plus" aria-hidden="true">+</span></span></summary><div class="obs-grid"><div><strong>31<span>개</span></strong><h4>내 차 · 주변 차량</h4><p>내 속도, 주변 5개 차로의 앞뒤 차량 거리와 상대속도, 차로 연결, 밀도</p></div><div><strong>9<span>개</span></strong><h4>신호 · 주행 상황</h4><p>신호와 정지선 거리, 교차로 거리, 남은 경로, 제한속도, 교차로 상대 차량, 먼 앞차</p></div><div><strong>24<span>개</span></strong><h4>경로 정보</h4><p>다음 회전 방향 4개와 주변 5개 차로의 연결 방향 20개. 추천 차로는 주지 않습니다.</p></div></div></details>
+</section>
+
+<!-- ===== 결과 ===== -->
+<!-- 새 모델 결과가 나오면 "–" 를 실제 숫자로 바꾸세요 -->
+<section id="results" class="environment results"><div class="wrap section">
+<div class="section-head"><div><p class="eyebrow">RESULTS</p><h2>같은 시험지로,<br>모든 모델을 비교했습니다.</h2></div><p>시간대·출발지·목적지·시드를 고정한 60개 경로로<br>어떤 모델이든 같은 조건에서 평가했습니다.</p></div>
+<div class="facts" aria-label="최종 모델 성능"><div><strong>–<span>%</span></strong><p>충돌률 · 목표 5% 미만</p></div><div><strong>–<span>/ 60</span></strong><p>목적지 도착</p></div><div><strong>–<span>회</span></strong><p>빨간불 통과</p></div><div><strong>–<span>회</span></strong><p>정체(300초)</p></div></div>
+<div class="x-tables">
+<div class="x-card"><div class="x-card-head"><h3>모델별 비교</h3><span>60 ROUTES</span></div><table><thead><tr><th>모델</th><th>도착</th><th>충돌</th><th>정체</th><th>쉴드 개입</th></tr></thead><tbody>
+<tr><td>선생님</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>BC</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>DAgger</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+<tr class="x-final"><td>PPO (최종)</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+</tbody></table></div>
+<div class="x-card"><div class="x-card-head"><h3>시간대별 도착</h3><span>PPO</span></div><table><thead><tr><th>시간대</th><th>도착 / 경로</th></tr></thead><tbody>
+<tr><td>심야 03시</td><td>– / –</td></tr>
+<tr><td>주간 12시</td><td>– / –</td></tr>
+<tr><td>출근 08시</td><td>– / –</td></tr>
+</tbody></table></div>
+</div>
+<div class="x-card x-figure"><div class="x-card-head"><h3>학습 곡선</h3><span>PPO TRAINING</span></div>
+<!-- 그래프가 나오면 assets/ 에 learning_curve.png 를 올리고, 아래 x-pending div 를 지운 뒤 img 주석을 푸세요 -->
+<div class="x-pending"><span class="pending-label">업로드 예정</span>학습이 끝나면 보상과 도착률 곡선이 들어갑니다.</div>
+<!-- <img src="assets/learning_curve.png" alt="PPO 학습 곡선"> -->
+</div>
+<div class="research-note"><span class="note-symbol" aria-hidden="true">i</span><p><strong>새 64차원 모델 학습이 끝나면 결과를 업데이트합니다.</strong> 이전 모델의 수치는 이 표에 넣지 않습니다.</p></div>
+</div></section>
+
+<!-- ===== 주행 영상 ===== -->
+<section id="video" class="section wrap"><div class="section-head"><div><p class="eyebrow">DRIVING VIDEO</p><h2>학습한 모델이<br>여의도를 달립니다.</h2></div><p>sumo-gui에서 녹화한 주행 영상입니다.<br>빨간 차가 자율주행 차량입니다.</p></div>
+<div class="x-video">
+<div class="map-top"><span><b class="live-dot"></b>SUMO-GUI REPLAY</span><span>PPO POLICY</span></div>
+<div class="x-video-frame">
+<!-- 방법 1) YouTube: 아래 x-pending div 를 지우고 iframe 주석을 푼 뒤 VIDEO_ID 를 바꾸세요 -->
+<!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="여의도 자율주행 주행 영상" allowfullscreen></iframe> -->
+<!-- 방법 2) 파일: assets/ 에 final_demo.mp4 (100MB 이하) 를 올리고, 아래 x-pending div 를 지운 뒤 video 주석을 푸세요 -->
+<!-- <video src="assets/final_demo.mp4" controls playsinline preload="metadata"></video> -->
+<div class="x-pending"><span class="pending-label">업로드 예정</span>주행 영상이 여기에 들어갑니다.</div>
+</div>
+<p class="map-caption">파란 선은 처음 경로, 주황 선은 막혔을 때 다시 찾은 경로입니다.</p>
+</div>
+</section>
+
+<section class="closing wrap"><div><p class="eyebrow">EXPLORE THE PROJECT</p><h2>코드와 데이터는<br>모두 공개되어 있습니다.</h2></div><a class="button primary" href="#resources">프로젝트 자료 보기</a></section>
+</main>
+<footer class="footer wrap"><a href="#" class="footer-logo">YEOUIDO DRIVE<span>8조 · 증권맨의 삶</span></a><div><span>SUMO · BC · DAgger · PPO</span><p>도로·배경 데이터: 국가표준노드링크, 서울 TOPIS·T DATA,<br class="mobile-br"> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>.</p></div><a href="#main" class="back-top">맨 위로</a></footer>
+</body></html>
