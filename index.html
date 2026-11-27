@@ -63,8 +63,8 @@
 .x-time .env-copy>p{margin-top:0}
 @media(max-width:1000px){.x-road{grid-template-columns:1fr}}
 @media(max-width:760px){.x-env{padding-block:57px}.x-road{margin-bottom:46px}.x-time.env-grid{gap:28px}}
-.eyebrow.x-ko{font-size:14px;letter-spacing:.02em}
-.x-roman{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:22px;padding:0 7px;border-radius:6px;background:#eef3ff;color:var(--blue);font-size:12px;font-weight:750;letter-spacing:.04em;font-family:Georgia,'Times New Roman',serif}
+.eyebrow.x-ko{font-size:17px;letter-spacing:.01em;gap:12px}
+.x-roman{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:27px;padding:0 8px;border-radius:7px;background:#eef3ff;color:var(--blue);font-size:14px;font-weight:750;letter-spacing:.04em;font-family:Georgia,'Times New Roman',serif}
 .x-callout{margin-top:22px;padding:0 4px}
 .x-callout p{margin:0;font-size:16px;line-height:1.9;color:var(--muted);word-break:keep-all}
 .x-callout strong{font-size:19px;font-weight:750;letter-spacing:-.035em;color:var(--ink);background:linear-gradient(transparent 60%,#dbe6ff 60%)}
@@ -79,10 +79,10 @@
 
 <!-- ===== 소개 ===== -->
 <section class="hero wrap" id="project">
-<div class="hero-copy"><p class="eyebrow"><span class="tiny-line"></span> 8조 · 여의도를 달리는 자율주행</p><h1>증권맨의 <span>삶</span></h1><p class="hero-desc"><strong>증권맨이 출근하는 여의도, 그 실제 도로를 달립니다.</strong><br>여의도 곳곳에 핀포인트 7곳을 정하고,<br class="desktop-br"> 그 사이 구간을 심야시간·출근시간·낮시간 시간대별로 달린 모습을 보여드립니다.</p><p class="route-count"><strong>핀포인트 7곳 · 경로 42개 (7 × 6) · 시간대 3개</strong><span>모든 주행을 모델 하나로</span></p><div class="hero-links"><a class="button primary" data-resource="github" href="https://github.com/mk11226/yeouido_sumo_ws/tree/final" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5-7 7 7 7m8-14 7 7-7 7M14 3l-4 18"/></svg>코드 보기</a><a class="button secondary" data-resource="dataset" href="https://huggingface.co/datasets/mk11226/yeouido_sumo" target="_blank" rel="noopener noreferrer">데이터셋 보기</a></div><div class="hero-meta"><span>실제 도로 데이터</span><span>SUMO 시뮬레이션</span><span>BC · PPO</span></div></div>
+<div class="hero-copy"><p class="eyebrow"><span class="tiny-line"></span> 8조 · 여의도를 달리는 자율주행</p><h1>증권맨의 <span>삶</span></h1><p class="hero-desc"><strong>증권맨이 출근하는 여의도, 그 실제 도로를 달립니다.</strong><br>여의도 곳곳에 핀포인트 7곳을 정하고,<br class="desktop-br"> 그 사이 구간을 출근시간·낮시간·심야시간 시간대별로 달린 모습을 보여드립니다.</p><p class="route-count"><strong>핀포인트 7곳 · 경로 42개 (7 × 6) · 시간대 3개</strong><span>모든 주행을 모델 하나로</span></p><div class="hero-links"><a class="button primary" data-resource="github" href="https://github.com/mk11226/yeouido_sumo_ws/tree/final" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5-7 7 7 7m8-14 7 7-7 7M14 3l-4 18"/></svg>코드 보기</a><a class="button secondary" data-resource="dataset" href="https://huggingface.co/datasets/mk11226/yeouido_sumo" target="_blank" rel="noopener noreferrer">데이터셋 보기</a></div><div class="hero-meta"><span>실제 도로 데이터</span><span>SUMO 시뮬레이션</span><span>BC · PPO</span></div></div>
 <div class="hero-visual"><div class="map-top"><span><b class="live-dot"></b>YEOUIDO NETWORK</span><span>SEOUL, KR</span></div><img src="assets/yeouido-network.svg" alt="여의도·영등포 SUMO 도로망과 국회의사당에서 IFC 서울까지의 예시 경로" width="6207" height="4564" fetchpriority="high"><div class="map-compass" aria-hidden="true">N<span>│</span></div><div class="map-info"><span class="map-route-icon" aria-hidden="true">⌁</span><div><strong>실제 도로망으로 만든 환경</strong><span>여의도 · 당산 · 영등포</span></div><span class="map-tag">SUMO</span></div><p class="map-caption">실제 도로망 기반 지도입니다. 연두색 선은 예시 경로이며 모델의 주행 결과가 아닙니다.</p></div>
 </section>
-<div class="facts wrap" aria-label="프로젝트 구성"><div><strong>64<span>차원</span></strong><p>관측</p></div><div><strong>2<span>종류 행동</span></strong><p>모델은 속도와 차로만 정합니다</p></div><div><strong>3<span>개 시간대</span></strong><p>심야시간 · 출근시간 · 낮시간</p></div><div><strong>7<span>곳</span></strong><p>핀포인트</p></div></div>
+<div class="facts wrap" aria-label="프로젝트 구성"><div><strong>64<span>차원</span></strong><p>관측</p></div><div><strong>2<span>종류 행동</span></strong><p>모델은 속도와 차로만 정합니다</p></div><div><strong>3<span>개 시간대</span></strong><p>출근시간 · 낮시간 · 심야시간</p></div><div><strong>7<span>곳</span></strong><p>핀포인트</p></div></div>
 
 
 <!-- ===== 자료 ===== -->
@@ -121,8 +121,8 @@
 <!-- 시간대 구성 -->
 <div class="x-sub"><span class="x-sub-num">02</span><h3>시간대 구성</h3></div>
 <div class="env-grid x-time">
-<div class="env-copy"><p>서울시 TOPIS의 평일 실측 교통량으로<br>심야시간·출근시간·낮시간 세 가지 교통 상황을 만들었습니다.<br>일부 교차로에는 실제 신호 주기를 적용했습니다.</p><div class="source-list"><div><span>교통량</span><strong>서울시 TOPIS</strong></div><div><span>일부 교차로 신호</span><strong>서울시 T DATA</strong></div><div><span>시간대</span><strong>심야시간 03시 · 출근시간 08시 · 낮시간 12시</strong></div></div></div>
-<div class="scenario-panel"><div class="panel-heading"><span>시간대별 교통</span><span class="panel-note">SCENARIOS</span></div><div class="scenario-tabs" role="tablist" aria-label="교통 시간대"><button role="tab" id="tab-night" aria-controls="scenario-detail" aria-selected="true" data-scenario="night">심야시간</button><button role="tab" id="tab-rush" aria-controls="scenario-detail" aria-selected="false" tabindex="-1" data-scenario="rush">출근시간</button><button role="tab" id="tab-day" aria-controls="scenario-detail" aria-selected="false" tabindex="-1" data-scenario="day">낮시간</button></div><div id="scenario-detail" class="scenario-detail" role="tabpanel" tabindex="0" aria-labelledby="tab-night"><div class="scenario-time"><span id="scenario-hour">03:00</span><span id="scenario-title">심야시간</span></div><div class="road-demo" aria-hidden="true"><div class="lane lane-one"></div><div class="lane lane-two"></div><div class="lane lane-three"></div><div class="lane lane-four"></div></div><p id="scenario-description">차가 적은 시간입니다. 도로가 한산해도 신호와 주변 차량은 계속 살펴야 합니다.</p><div class="scenario-footer"><span>TOPIS 실측 교통량 반영</span><span>설명용 그래픽</span></div></div></div>
+<div class="env-copy"><p>서울시 TOPIS의 평일 실측 교통량으로<br>출근시간·낮시간·심야시간 세 가지 교통 상황을 만들었습니다.<br>일부 교차로에는 실제 신호 주기를 적용했습니다.</p><div class="source-list"><div><span>교통량</span><strong>서울시 TOPIS</strong></div><div><span>일부 교차로 신호</span><strong>서울시 T DATA</strong></div><div><span>시간대</span><strong>출근시간 08시 · 낮시간 12시 · 심야시간 03시</strong></div></div></div>
+<div class="scenario-panel"><div class="panel-heading"><span>시간대별 교통</span><span class="panel-note">SCENARIOS</span></div><div class="scenario-tabs" role="tablist" aria-label="교통 시간대"><button role="tab" id="tab-rush" aria-controls="scenario-detail" aria-selected="true" data-scenario="rush">출근시간</button><button role="tab" id="tab-day" aria-controls="scenario-detail" aria-selected="false" tabindex="-1" data-scenario="day">낮시간</button><button role="tab" id="tab-night" aria-controls="scenario-detail" aria-selected="false" tabindex="-1" data-scenario="night">심야시간</button></div><div id="scenario-detail" class="scenario-detail" role="tabpanel" tabindex="0" aria-labelledby="tab-rush"><div class="scenario-time"><span id="scenario-hour">08:00</span><span id="scenario-title">출근시간</span></div><div class="road-demo" aria-hidden="true"><div class="lane lane-one"></div><div class="lane lane-two"></div><div class="lane lane-three"></div><div class="lane lane-four"></div></div><p id="scenario-description">차가 가장 많이 몰리는 시간입니다. 정체와 신호 대기 속에서 차로를 바꾸고 속도를 조절해야 합니다.</p><div class="scenario-footer"><span>TOPIS 실측 교통량 반영</span><span>설명용 그래픽</span></div></div></div>
 </div>
 </div></section>
 
@@ -145,13 +145,13 @@
 <!-- 새 모델 결과가 나오면 "–" 를 실제 숫자로 바꾸세요 -->
 <section id="results" class="environment results"><div class="wrap section">
 <!-- 숫자 수정할 곳: 핀포인트 7곳, 경로 42개 (7 × 6), 총 126회 (42 × 3) — 이 섹션 안에서 모두 바꾸세요 -->
-<div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">IV</span>결과</p><h2>42개 경로 × 3개 시간대 주행 결과</h2></div><p>핀포인트 7곳 사이 모든 경로 42개(7 × 6)<br>심야시간 · 출근시간 · 낮시간 각각 주행</p></div>
+<div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">IV</span>결과</p><h2>42개 경로 × 3개 시간대 주행 결과</h2></div><p>핀포인트 7곳 사이 모든 경로 42개(7 × 6)<br>출근시간 · 낮시간 · 심야시간 각각 주행</p></div>
 <div class="facts" aria-label="주행 결과 요약"><div><strong>–<span>%</span></strong><p>완주율</p></div><div><strong>–<span>%</span></strong><p>충돌률</p></div><div><strong>42<span>개</span></strong><p>경로 · 핀포인트 7곳 × 6</p></div><div><strong>126<span>회</span></strong><p>총 주행 · 42개 × 3개 시간대</p></div></div>
 <p class="x-highlight">모델 하나로 모든 시간대, 모든 경로를 주행했습니다.</p>
 <div class="x-card"><div class="x-card-head"><h3>시간대별 결과</h3><span>42개 경로 × 3개 시간대</span></div><table><thead><tr><th>시간대</th><th>주행</th><th>완주</th><th>완주율</th><th>충돌</th><th>충돌률</th><th>평균 완주 시간</th></tr></thead><tbody>
-<tr><td>심야시간 03시</td><td>42</td><td>–</td><td>–%</td><td>–</td><td>–%</td><td>–분 –초</td></tr>
 <tr><td>출근시간 08시</td><td>42</td><td>–</td><td>–%</td><td>–</td><td>–%</td><td>–분 –초</td></tr>
 <tr><td>낮시간 12시</td><td>42</td><td>–</td><td>–%</td><td>–</td><td>–%</td><td>–분 –초</td></tr>
+<tr><td>심야시간 03시</td><td>42</td><td>–</td><td>–%</td><td>–</td><td>–%</td><td>–분 –초</td></tr>
 <tr class="x-final"><td>전체</td><td>126</td><td>–</td><td>–%</td><td>–</td><td>–%</td><td>–분 –초</td></tr>
 </tbody></table>
 </div>
@@ -159,7 +159,7 @@
 </div></section>
 
 <!-- ===== 주행 영상 ===== -->
-<section id="video" class="section wrap"><div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">V</span>주행 영상</p><h2>같은 경로, 시간대별 주행 비교</h2></div><p>심야시간 · 출근시간 · 낮시간<br>빨간 차가 자율주행 차량</p></div>
+<section id="video" class="section wrap"><div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">V</span>주행 영상</p><h2>같은 경로, 시간대별 주행 비교</h2></div><p>출근시간 · 낮시간 · 심야시간<br>빨간 차가 자율주행 차량</p></div>
 <!-- 경로 이름을 바꾸세요 (예: 국회의사당 → IFC 서울) -->
 <p class="route-count"><strong>같은 경로 · 출발지 → 목적지</strong><span>모델은 세 영상 모두 같습니다</span></p>
 <!--
@@ -169,15 +169,15 @@
   완주 시간 "–분 –초" 도 영상에 맞게 바꾸세요
 -->
 <div class="x-video-grid">
-<div class="x-video"><div class="map-top"><span><b class="live-dot"></b>심야시간 03:00</span><span>완주 –분 –초</span></div><div class="x-video-frame">
-<div class="x-pending"><span class="pending-label">업로드 예정</span>심야시간 주행</div>
-</div><p class="map-caption">차가 적어 막힘 없이 달립니다.</p></div>
 <div class="x-video"><div class="map-top"><span><b class="live-dot"></b>출근시간 08:00</span><span>완주 –분 –초</span></div><div class="x-video-frame">
 <div class="x-pending"><span class="pending-label">업로드 예정</span>출근시간 주행</div>
 </div><p class="map-caption">정체 구간에서 속도를 줄이고 차로를 바꾸며 달립니다.</p></div>
 <div class="x-video"><div class="map-top"><span><b class="live-dot"></b>낮시간 12:00</span><span>완주 –분 –초</span></div><div class="x-video-frame">
 <div class="x-pending"><span class="pending-label">업로드 예정</span>낮시간 주행</div>
 </div><p class="map-caption">일상 교통 속에서 신호와 주변 차량에 맞춰 달립니다.</p></div>
+<div class="x-video"><div class="map-top"><span><b class="live-dot"></b>심야시간 03:00</span><span>완주 –분 –초</span></div><div class="x-video-frame">
+<div class="x-pending"><span class="pending-label">업로드 예정</span>심야시간 주행</div>
+</div><p class="map-caption">차가 적어 막힘 없이 달립니다.</p></div>
 </div>
 </section>
 

@@ -1,8 +1,8 @@
 'use strict';
 const scenarios = {
-  night: {hour:'03:00',title:'심야시간',description:'차가 적은 시간입니다. 도로가 한산해도 신호와 주변 차량은 계속 살펴야 합니다.',cars:3},
   rush: {hour:'08:00',title:'출근시간',description:'차가 가장 많이 몰리는 시간입니다. 정체와 신호 대기 속에서 차로를 바꾸고 속도를 조절해야 합니다.',cars:9},
-  day: {hour:'12:00',title:'낮시간',description:'일상적인 도심 교통입니다. 신호와 주변 차량에 맞춰 목적지로 향합니다.',cars:6}
+  day: {hour:'12:00',title:'낮시간',description:'일상적인 도심 교통입니다. 신호와 주변 차량에 맞춰 목적지로 향합니다.',cars:6},
+  night: {hour:'03:00',title:'심야시간',description:'차가 적은 시간입니다. 도로가 한산해도 신호와 주변 차량은 계속 살펴야 합니다.',cars:3}
 };
 const tabs = [...document.querySelectorAll('[data-scenario]')];
 function setScenario(key){
@@ -31,7 +31,7 @@ tabs.forEach((tab,index)=>{
     if(next!==undefined){event.preventDefault();tabs[next].focus();setScenario(tabs[next].dataset.scenario);}
   });
 });
-setScenario('night');
+setScenario('rush');
 function safeURL(value){try{const url=new URL(value);return url.protocol==='https:'?url.href:null;}catch{return null;}}
 fetch('project.json').then(response=>{if(!response.ok)throw new Error('Project links unavailable');return response.json();}).then(config=>{
   ['github','dataset'].forEach(key=>{const url=safeURL(config[key]);if(url)document.querySelectorAll(`[data-resource="${key}"]`).forEach(link=>link.href=url);});
