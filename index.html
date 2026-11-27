@@ -69,6 +69,14 @@
 .x-callout p{margin:0;font-size:16px;line-height:1.9;color:var(--muted);word-break:keep-all}
 .x-callout strong{font-size:19px;font-weight:750;letter-spacing:-.035em;color:var(--ink);background:linear-gradient(transparent 60%,#dbe6ff 60%)}
 @media(max-width:760px){.x-callout strong{font-size:17px}}
+.x-why{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.x-why h3{margin:0 0 14px;font-size:20px;font-weight:700;letter-spacing:-.04em}
+.x-list{list-style:none;margin:0;padding:0}
+.x-list li{position:relative;padding:0 0 12px 18px;font-size:16px;line-height:1.8;color:var(--muted);word-break:keep-all}
+.x-list li:last-child{padding-bottom:0}
+.x-list li::before{content:"";position:absolute;left:2px;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+#why.section{padding-bottom:20px}
+@media(max-width:760px){.x-why{grid-template-columns:1fr}}
 </style>
 <script defer src="app.js"></script>
 </head>
@@ -85,8 +93,24 @@
 <div class="facts wrap" aria-label="프로젝트 구성"><div><strong>64<span>차원</span></strong><p>관측</p></div><div><strong>2<span>종류 행동</span></strong><p>모델은 속도와 차로만 정합니다</p></div><div><strong>3<span>개 시간대</span></strong><p>출근시간 · 낮시간 · 심야시간</p></div><div><strong>7<span>곳</span></strong><p>핀포인트</p></div></div>
 
 
+<!-- ===== 배경 ===== -->
+<section id="why" class="section wrap"><div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">I</span>프로젝트 배경</p><h2>왜 여의도, 왜 시간대별 주행인가</h2></div></div>
+<div class="x-why">
+<div class="x-card"><h3>왜 여의도인가</h3><ul class="x-list">
+<li>금융 회사가 모여 있어 출퇴근 시간에 교통이 크게 몰립니다.</li>
+<li>섬이라 마포대교·서강대교·원효대교 같은 다리로만 드나들어, 진입 구간이 여러 갈래입니다.</li>
+<li>넓은 간선도로, 복잡한 교차로, 신호가 한 지역에 모여 있어 한국 도심 도로의 특징이 잘 드러납니다.</li>
+</ul></div>
+<div class="x-card"><h3>왜 시간대를 나눴나</h3><ul class="x-list">
+<li>같은 도로라도 시간에 따라 교통량이 크게 달라집니다.</li>
+<li>한산할 때만 잘 달리는 모델이 아니라, 붐비는 출근시간에도 안전하게 달리는지 확인하고 싶었습니다.</li>
+<li>시간대마다 모델을 따로 만들지 않고, 모델 하나가 상황 변화에 맞춰 주행하는지 봤습니다.</li>
+</ul></div>
+</div>
+</section>
+
 <!-- ===== 자료 ===== -->
-<section id="resources" class="section wrap resources"><div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">I</span>자료</p><h2>코드 · 데이터 · 발표 자료 · 주행 영상</h2></div></div>
+<section id="resources" class="section wrap resources"><div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">II</span>자료</p><h2>코드 · 데이터 · 발표 자료 · 주행 영상</h2></div></div>
 <div class="resource-grid">
 <a class="resource-card" data-resource="github" href="https://github.com/mk11226/yeouido_sumo_ws/tree/final" target="_blank" rel="noopener noreferrer"><span class="resource-icon code-icon" aria-hidden="true">&lt;/&gt;</span><span class="resource-kind">SOURCE CODE</span><h3>GitHub</h3><p>도로 환경 구축부터<br>학습·평가까지 전체 코드</p><span class="resource-action">저장소 열기 <span class="external-icon" aria-hidden="true">⧉</span></span></a>
 <a class="resource-card" data-resource="dataset" href="https://huggingface.co/datasets/mk11226/yeouido_sumo" target="_blank" rel="noopener noreferrer"><span class="resource-icon data-icon" aria-hidden="true">▤</span><span class="resource-kind">DATASET</span><h3>Hugging Face</h3><p>선생님 정책으로 수집한<br>64차원 관측 주행 데이터</p><span class="resource-action">데이터셋 열기 <span class="external-icon" aria-hidden="true">⧉</span></span></a>
@@ -96,7 +120,7 @@
 
 <!-- ===== 도로 환경 ===== -->
 <section id="environment" class="environment"><div class="wrap x-env">
-<div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">II</span>도로 환경</p><h2>여의도 도로망 구축 · 시간대별 교통</h2></div><p>실제 지도 기반 도로망, 시간대별 실측 교통량</p></div>
+<div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">III</span>도로 환경</p><h2>여의도 도로망 구축 · 시간대별 교통</h2></div><p>실제 지도 기반 도로망, 시간대별 실측 교통량</p></div>
 
 <!-- 도로 구성 -->
 <div class="x-sub"><span class="x-sub-num">01</span><h3>도로 구성</h3></div>
@@ -127,7 +151,7 @@
 </div></section>
 
 <!-- ===== 학습 방법 ===== -->
-<section id="learning" class="section wrap learning"><div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">III</span>학습 방법</p><h2>데이터 수집 → BC → PPO</h2></div><p>직접 수집한 선생님 데이터로 BC 학습 후<br>PPO로 미세조정</p></div>
+<section id="learning" class="section wrap learning"><div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">IV</span>학습 방법</p><h2>데이터 수집 → BC → PPO</h2></div><p>직접 수집한 선생님 데이터로 BC 학습 후<br>PPO로 미세조정</p></div>
 <div class="learning-flow">
 <article><span class="flow-icon x-n" aria-hidden="true">1</span><h3>데이터 수집</h3><p>선생님이 여의도를 주행하며<br>관측과 행동을 기록합니다.</p><span class="flow-label">EXPERT DATA</span></article>
 <div class="flow-connector" aria-hidden="true"></div>
@@ -145,7 +169,7 @@
 <!-- 새 모델 결과가 나오면 "–" 를 실제 숫자로 바꾸세요 -->
 <section id="results" class="environment results"><div class="wrap section">
 <!-- 숫자 수정할 곳: 핀포인트 7곳, 경로 42개 (7 × 6), 총 126회 (42 × 3) — 이 섹션 안에서 모두 바꾸세요 -->
-<div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">IV</span>결과</p><h2>42개 경로 × 3개 시간대 주행 결과</h2></div><p>핀포인트 7곳 사이 모든 경로 42개(7 × 6)<br>출근시간 · 낮시간 · 심야시간 각각 주행</p></div>
+<div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">V</span>결과</p><h2>42개 경로 × 3개 시간대 주행 결과</h2></div><p>핀포인트 7곳 사이 모든 경로 42개(7 × 6)<br>출근시간 · 낮시간 · 심야시간 각각 주행</p></div>
 <div class="facts" aria-label="주행 결과 요약"><div><strong>–<span>%</span></strong><p>완주율</p></div><div><strong>–<span>%</span></strong><p>충돌률</p></div><div><strong>42<span>개</span></strong><p>경로 · 핀포인트 7곳 × 6</p></div><div><strong>126<span>회</span></strong><p>총 주행 · 42개 × 3개 시간대</p></div></div>
 <p class="x-highlight">모델 하나로 모든 시간대, 모든 경로를 주행했습니다.</p>
 <div class="x-card"><div class="x-card-head"><h3>시간대별 결과</h3><span>42개 경로 × 3개 시간대</span></div><table><thead><tr><th>시간대</th><th>주행</th><th>완주</th><th>완주율</th><th>충돌</th><th>충돌률</th><th>평균 완주 시간</th></tr></thead><tbody>
@@ -159,7 +183,7 @@
 </div></section>
 
 <!-- ===== 주행 영상 ===== -->
-<section id="video" class="section wrap"><div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">V</span>주행 영상</p><h2>같은 경로, 시간대별 주행 비교</h2></div><p>출근시간 · 낮시간 · 심야시간<br>빨간 차가 자율주행 차량</p></div>
+<section id="video" class="section wrap"><div class="section-head"><div><p class="eyebrow x-ko"><span class="x-roman">VI</span>주행 영상</p><h2>같은 경로, 시간대별 주행 비교</h2></div><p>출근시간 · 낮시간 · 심야시간<br>빨간 차가 자율주행 차량</p></div>
 <!-- 경로 이름을 바꾸세요 (예: 국회의사당 → IFC 서울) -->
 <p class="route-count"><strong>같은 경로 · 출발지 → 목적지</strong><span>모델은 세 영상 모두 같습니다</span></p>
 <!--
