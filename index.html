@@ -159,8 +159,6 @@
 <div class="flow-connector" aria-hidden="true"></div>
 <article><span class="flow-icon x-n" aria-hidden="true">3</span><h3>PPO</h3><p>BC 모델에서 시작해 도착·충돌·신호 위반<br>보상으로 주행을 다듬습니다.</p><span class="flow-label">REINFORCEMENT LEARNING</span></article>
 </div>
-<!-- 안전 쉴드: 새 모델에서 쓰지 않으면 아래 한 줄(div)을 통째로 지우세요 -->
-<div class="research-note"><span class="note-symbol" aria-hidden="true">i</span><p><strong>안전 쉴드</strong> · 모델이 낸 속도가 앞차·신호·교차로 기준 안전 속도를 넘으면 그 아래로 자릅니다. 학습과 주행 모두에 적용됩니다.</p></div>
 <details class="observation"><summary><span>모델은 무엇을 정하나요?</span><span class="obs-summary">행동 2종류 <span class="plus" aria-hidden="true">+</span></span></summary><div class="obs-grid"><div><strong>SUMO<span>가 맡음</span></strong><h4>길 찾기 · 조향</h4><p>어느 길로 갈지는 출발할 때 SUMO가 최단 경로로 정하고, 차선을 따라 도는 조향도 SUMO가 처리합니다.</p></div><div><strong>①<span>모델</span></strong><h4>가감속</h4><p>지금 얼마나 가속하거나 감속할지 정합니다. 연속값 하나입니다.</p></div><div><strong>②<span>모델</span></strong><h4>차로 변경</h4><p>왼쪽으로 옮길지, 그대로 갈지, 오른쪽으로 옮길지 셋 중 하나를 고릅니다.</p></div></div><p class="x-table-note" style="margin:0;padding:14px 25px 18px;background:#fafbfe">내비게이션이 길을 알려주면 운전자는 속도와 차로만 판단하는 것과 같습니다.</p></details>
 <details class="observation"><summary><span>모델은 무엇을 보고 판단하나요?</span><span class="obs-summary">64차원 관측 <span class="plus" aria-hidden="true">+</span></span></summary><div class="obs-grid"><div><strong>31<span>개</span></strong><h4>내 차 · 주변 5개 차로</h4><p>내 속도 1개, 차로별 앞뒤 차량의 거리·상대속도 20개, 차로 연결성 5개, 전방 차량 밀도 5개</p></div><div><strong>9<span>개</span></strong><h4>신호 · 주행 상황</h4><p>신호 상태와 정지선 거리, 다음 교차로 거리, 남은 경로 비율, 허용 속도, 교차로에서 만나는 차량의 거리와 양보 관계, 먼 앞차의 거리·상대속도</p></div><div><strong>24<span>개</span></strong><h4>경로 정보</h4><p>다음 도로로 가는 방향(직진·좌회전·우회전·유턴) 4개, 주변 5개 차로별로 갈 수 있는 방향 20개. 어느 차로가 정답인지는 알려주지 않습니다.</p></div></div><p class="x-table-note" style="margin:0;padding:14px 25px 18px;background:#fafbfe">모든 값은 −1~1 범위로 정규화했습니다. 예: 속도는 22.22m/s, 차간거리는 50m 기준. 컬럼별 정의는 Hugging Face 데이터셋 카드에 있습니다.</p></details>
 </section>
@@ -178,7 +176,6 @@
 <tr><td>심야시간 03시</td><td>42</td><td>37</td><td>88.1%</td><td>0</td><td>0.0%</td><td>4분 46초</td></tr>
 <tr class="x-final"><td>전체</td><td>126</td><td>100</td><td>79.4%</td><td>1</td><td>0.8%</td><td>7분 07초</td></tr>
 </tbody></table>
-<p class="x-table-note">실패 26회: 시간초과 18회 · 순간이동(Teleport) 7회 · 충돌 1회</p>
 </div>
 <div class="x-callout"><p>시간대마다 교통량은 크게 다릅니다.<br><strong>모델 하나가 시간대마다 달라지는 교통 상황에 맞춰 속도와 차로를 스스로 조절하며 주행했습니다.</strong></p></div>
 </div></section>
